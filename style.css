@@ -1,24 +1,25 @@
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; } /* Variáveis de cores e fontes */
 :root {
   --primary: #04CC6A; --primary-d: #03A855; --secondary: #002A52;
-  --tertiary: #64FFDA; --bg: #0A0F1A; --bg2: #0F172A;
+  --tertiary: #64FFDA; --bg: #0A0F1A; --bg2: #0F172A; /* tons de azul escuro */
   --card: #131E30; --card2: #1A2640; --border: #1E3050;
   --text: #F8FAFC; --muted: #8899AA; --font: 'Space Grotesk', sans-serif;
 }
-html { scroll-behavior: smooth; }
-body { font-family: var(--font); background: var(--bg); color: var(--text); overflow-x: hidden; }
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-#root { min-height: 100vh; }
+html { scroll-behavior: smooth; } /* deixa suavi a rolagem para ancoras */
+body { font-family: var(--font); background: var(--bg); color: var(--text); overflow-x: hidden; } /* Estilos globais */
+::-webkit-scrollbar { width: 5px; } /* Personaliza a barra de rolagem para
+ navegadores baseados em WebKit( motor de renderização de código aberto para processar e exibir páginas da web ) */
+::-webkit-scrollbar-track { background: var(--bg); } /* cor de fundo da trilha da barra de rolagem */
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; } /* cor e estilo do barrinha de arrastar da barra de rolagem */
+#root { min-height: 100vh; } /* Container principal */
 
-/* react note banner */
+/* Banner do react */
 .react-banner {
-  position: fixed; bottom: 1.2rem; right: 1.2rem; z-index: 9999;
+  position: fixed; bottom: 1.2rem; right: 1.2rem; z-index: 9999; 
   background: rgba(4,204,106,.12); border: 1px solid rgba(4,204,106,.3);
   border-radius: 10px; padding: .6rem 1rem;
   font-size: .72rem; font-weight: 600; color: var(--primary);
   font-family: var(--font); letter-spacing: .05em;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px); /* efeito de defoque para o fundo do banner, muit massa */
 }
-.react-banner span { color: var(--muted); font-weight: 400; margin-left: .3rem; }
+.react-banner span { color: var(--muted); font-weight: 400; margin-left: .3rem; } /* Estilos pro banner do React */
