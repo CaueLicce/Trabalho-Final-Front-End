@@ -1,13 +1,11 @@
 const { useState, useEffect, useRef } = React;
 
-/* ══ DESIGN TOKENS ══ */
 const C = {
   primary: '#04CC6A', primaryD: '#03A855', tertiary: '#64FFDA',
   bg: '#0A0F1A', bg2: '#0F172A', card: '#131E30', card2: '#1A2640',
   border: '#1E3050', text: '#F8FAFC', muted: '#8899AA',
 };
 
-/* ══ GLOBAL STYLES (injected) ══ */
 const globalCSS = `
   .btn { display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.6rem;border-radius:8px;font-family:var(--font);font-size:.9rem;font-weight:600;cursor:pointer;border:none;transition:all .2s;text-decoration:none; }
   .btn-primary { background:var(--primary);color:#fff; }
@@ -28,11 +26,6 @@ const styleEl = document.createElement('style');
 styleEl.textContent = globalCSS;
 document.head.appendChild(styleEl);
 
-/* ══════════════════════════════════════
-   COMPONENTS
-══════════════════════════════════════ */
-
-/* ── NAVBAR ── */
 function Navbar({ currentPage, setPage }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -87,12 +80,10 @@ function Navbar({ currentPage, setPage }) {
   );
 }
 
-/* ── BADGE ── */
 function Badge({ children }) {
   return <div className="badge">⬡ {children}</div>;
 }
 
-/* ── FEATURE CARD ── */
 function FeatureCard({ icon, title, desc }) {
   const [hov, setHov] = useState(false);
   return (
@@ -114,7 +105,6 @@ function FeatureCard({ icon, title, desc }) {
   );
 }
 
-/* ── STAT ITEM ── */
 function StatItem({ val, label, last }) {
   return (
     <div style={{ textAlign:'center', padding:'0 2rem', borderRight: last ? 'none' : `1px solid ${C.border}` }}>
@@ -124,7 +114,6 @@ function StatItem({ val, label, last }) {
   );
 }
 
-/* ── CTA BLOCK ── */
 function CtaBlock({ title, sub, btnLabel, onBtn }) {
   return (
     <div style={{
@@ -140,15 +129,10 @@ function CtaBlock({ title, sub, btnLabel, onBtn }) {
   );
 }
 
-/* ══════════════════════════════════════
-   PAGES
-══════════════════════════════════════ */
-
-/* ── HOME PAGE ── */
 function HomePage({ setPage }) {
   return (
     <div className="fade-in">
-      {/* HERO */}
+      
       <section style={{ minHeight:'100vh', display:'flex', alignItems:'center', paddingTop:80,
         background:'radial-gradient(ellipse 70% 60% at 60% 40%,rgba(0,42,82,.55),transparent 70%),radial-gradient(ellipse 40% 40% at 90% 10%,rgba(4,204,106,.08),transparent 60%),#0A0F1A' }}>
         <div className="container">
@@ -197,7 +181,7 @@ function HomePage({ setPage }) {
         </div>
       </section>
 
-      {/* STATS */}
+      
       <div style={{ background:C.card, borderTop:`1px solid ${C.border}`, borderBottom:`1px solid ${C.border}`, padding:'3rem 0' }}>
         <div className="container">
           <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)' }}>
@@ -209,7 +193,7 @@ function HomePage({ setPage }) {
         </div>
       </div>
 
-      {/* FEATURES */}
+      
       <section className="section">
         <div className="container">
           <div style={{ textAlign:'center', maxWidth:560, margin:'0 auto 4rem' }}>
@@ -224,7 +208,7 @@ function HomePage({ setPage }) {
         </div>
       </section>
 
-      {/* CTA */}
+      
       <section className="section-sm">
         <div className="container">
           <CtaBlock title="Pronto para dominar<br/>sua jornada acadêmica?" sub="Experimente a ferramenta que está mudando a forma como estudantes de alto desempenho organizam suas vidas." btnLabel="Começar Agora Gratuitamente" onBtn={() => setPage('dashboard')}/>
@@ -236,7 +220,6 @@ function HomePage({ setPage }) {
   );
 }
 
-/* ── COMO FUNCIONA ── */
 function ComoPage({ setPage }) {
   const steps = [
     { n:'01', icon:'📥', title:'Captura de Dados', desc:'Envie seus materiais: PDFs, livros, anotações ou vídeos. Nossa IA absorve e categoriza em instantes.' },
@@ -310,12 +293,11 @@ function ComoPage({ setPage }) {
   );
 }
 
-/* ── SOBRE NÓS ── */
 function SobrePage({ setPage }) {
   const team = [
-    { name:'Luiz Eduardo S. Corrêa',        role:'FullStack Arch'       },
+    { name:'L. Eduardo S. Corrêa',        role:'FullStack Arch'       },
     { name:'Rafael Cescate do Carmo',      role:'Cloud Engineer'       },
-    { name:'Guilherme F. M. Martinelli',   role:'Algorithm Specialist' },
+    { name:'Guilherme J. M. Martinelli',   role:'Algorithm Specialist' },
     { name:'Eduardo H. de Souza da Silva', role:'Interface Designer'   },
     { name:'Cauê Licce',                   role:'Systems Analyst'      },
   ];
@@ -373,7 +355,6 @@ function SobrePage({ setPage }) {
   );
 }
 
-/* ── CONTATO ── */
 function ContatoPage({ setPage }) {
   const [form, setForm] = useState({ nome:'', email:'', assunto:'Suporte Técnico', msg:'' });
   const [sent, setSent] = useState(false);
@@ -461,7 +442,6 @@ function ContatoPage({ setPage }) {
   );
 }
 
-/* ── DASHBOARD MOCKUP ── */
 function DashboardPage({ setPage }) {
   const [activeTab, setActiveTab] = useState('cronograma');
   const [timer, setTimer] = useState(25 * 60);
@@ -502,7 +482,7 @@ function DashboardPage({ setPage }) {
 
   return (
     <div style={{ minHeight:'100vh', paddingTop:72, background:C.bg, display:'flex' }}>
-      {/* SIDEBAR */}
+      
       <div style={{ width:220, background:C.bg2, borderRight:`1px solid ${C.border}`, padding:'1.5rem 0', position:'fixed', top:72, bottom:0, left:0, overflowY:'auto', zIndex:50 }}>
         <div style={{ padding:'0 1rem', marginBottom:'1.5rem' }}>
           <div style={{ fontSize:'.65rem', fontWeight:600, letterSpacing:'.12em', textTransform:'uppercase', color:C.muted, marginBottom:'.75rem' }}>Menu Principal</div>
@@ -522,9 +502,9 @@ function DashboardPage({ setPage }) {
         </div>
       </div>
 
-      {/* MAIN */}
+      
       <div style={{ marginLeft:220, flex:1, padding:'2rem', minHeight:'calc(100vh - 72px)' }}>
-        {/* TOP BAR */}
+        
         <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:'2rem' }}>
           <div>
             <h2 style={{ fontSize:'1.5rem', fontWeight:700 }}>Bom dia, Guilherme! 👋</h2>
@@ -538,7 +518,7 @@ function DashboardPage({ setPage }) {
           </div>
         </div>
 
-        {/* QUICK STATS */}
+        
         <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:'1rem', marginBottom:'2rem' }}>
           {[
             { icon:'🔥', val:'7 dias', label:'Sequência Atual', color:'#F59E0B' },
@@ -557,7 +537,7 @@ function DashboardPage({ setPage }) {
 
         <div style={{ display:'grid', gridTemplateColumns:'1.2fr 1fr', gap:'1.5rem' }}>
 
-          {/* CRONOGRAMA */}
+          
           <div>
             <div style={{ background:C.card, border:`1px solid ${C.border}`, borderRadius:14, padding:'1.5rem', marginBottom:'1.5rem' }}>
               <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:'1.2rem' }}>
@@ -577,7 +557,7 @@ function DashboardPage({ setPage }) {
               ))}
             </div>
 
-            {/* TASKS */}
+            
             <div style={{ background:C.card, border:`1px solid ${C.border}`, borderRadius:14, padding:'1.5rem' }}>
               <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:'1.2rem' }}>
                 <h3 style={{ fontSize:'.95rem' }}>✅ Matérias para Estudar</h3>
@@ -603,9 +583,9 @@ function DashboardPage({ setPage }) {
             </div>
           </div>
 
-          {/* TIMER + IA */}
+          
           <div>
-            {/* POMODORO */}
+            
             <div style={{ background:C.card, border:`1px solid ${C.border}`, borderRadius:14, padding:'1.5rem', marginBottom:'1.5rem', textAlign:'center' }}>
               <h3 style={{ fontSize:'.95rem', marginBottom:'1.5rem' }}>⏱ Timer de Foco</h3>
               <div style={{ position:'relative', width:140, height:140, margin:'0 auto 1.5rem' }}>
@@ -625,7 +605,7 @@ function DashboardPage({ setPage }) {
               </div>
             </div>
 
-            {/* IA SUGGESTIONS */}
+            
             <div style={{ background:C.card, border:`1px solid ${C.border}`, borderRadius:14, padding:'1.5rem' }}>
               <div style={{ display:'flex', alignItems:'center', gap:'.5rem', marginBottom:'1.2rem' }}>
                 <div style={{ width:28, height:28, borderRadius:8, background:'rgba(4,204,106,.12)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'.85rem' }}>🤖</div>
@@ -648,7 +628,6 @@ function DashboardPage({ setPage }) {
   );
 }
 
-/* ── FOOTER ── */
 function Footer({ setPage }) {
   return (
     <footer style={{ background:C.bg2, borderTop:`1px solid ${C.border}`, padding:'3rem 0 1.5rem' }}>
@@ -665,7 +644,6 @@ function Footer({ setPage }) {
   );
 }
 
-/* ══ APP ROOT ══ */
 function App() {
   const [page, setPage] = useState('home');
 
