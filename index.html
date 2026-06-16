@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR"> <!-- vai deixar o site em portugues do brasil -->
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Primus — React App</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8"> <!-- vai fazer com que todos os símbolos, letras e acentos dos sistemas de escrita do mundo funcionem no código  -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- é a responsividade, q permite funcionar certo em  dispositivos móveis -->
+<title>Primus — React App</title> <!-- título da página, só isso mesmo-->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"> <!-- esse link vai importar a fonte Space Grotesk do Google Fonts, 
+com diferentes pesos de 300 a 700, e display=swap vai garantir que a fonte seja exibida mesmo enquanto está sendo carregada -->
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script> <!-- esse link vai importar a biblioteca React versão 18 -->
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> <!-- vai importar a biblioteca ReactDOM versão 18 -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> <!-- esse link vai usar o Babel, que é um compilador JavaScript  -->
+<link rel="stylesheet" href="styles.css"> <!-- link que puxa as informações do css-->
 </head>
 <body>
-<div id="root"></div>
-<div class="react-banner">⚛ React 18 <span>via CDN + Babel</span></div>
-<script type="text/babel" src="script.js"></script>
+<div id="root"></div> <!-- onde o conteúdo do React vai aparecer na página -->
+<div class="react-banner">⚛ React 18 <span>via CDN + Babel</span></div> <!-- esse banner é só um aviso visual de que o site está usando React 18 via CDN e Babel -->
+<script type="text/babel" src="App.js"></script> <!-- link pro arquivo do react -->
 </body>
 </html>
