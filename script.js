@@ -1785,7 +1785,7 @@ function DashboardPage({setPage}) {
       margin: 0,
       lineHeight: 1.6
     }
-  }, s.text))))))))));
+
 }
 
 function Footer({setPage}) {
